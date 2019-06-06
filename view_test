@@ -1,0 +1,6 @@
+-- CREATE VIEW emp_ss AS (SELECT * FROM emp WHERE salary > 2000)
+--  WITH CHECK OPTION;
+-- CREATE OR REPLACE VIEW emp_j AS (SELECT * FROM emp WHERE job='总裁');
+-- DROP VIEW emp_j;
+-- CREATE OR REPLACE algorithm = MERGE VIEW emp_salary
+--  AS (SELECT ename,salary,avg(salary) FROM emp);
