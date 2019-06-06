@@ -1,0 +1,11 @@
+-- 合并结果集
+-- CREATE TABLE A(name VARCHAR(20),score INT);
+-- CREATE TABLE B(name VARCHAR(20),score INT);
+-- INSERT INTO A VALUES('a',10),('b',20),('c',30);
+-- INSERT INTO B VALUES('a',10),('b',20),('d',40);
+-- SELECT * FROM A UNION SELECT *FROM B;
+-- SELECT * FROM A UNION ALL SELECT *FROM B;
+-- 笛卡尔积的出现
+-- SELECT * FROM stu,tea;
+-- 解决
+-- SELECT * FROM stu,tea WHERE stu.sid=tea.tid;
