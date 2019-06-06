@@ -1,0 +1,27 @@
+-- 查询与项羽同一个部门人员工
+-- SELECT deptno FROM emp WHERE ename='项羽';
+-- SELECT ename,deptno	FROM emp WHERE deptno=20;
+-- SELECT ename,deptno	FROM emp WHERE deptno=(SELECT deptno FROM emp WHERE ename='项羽');
+-- 工资高于30号部门所有人的员工信息及工资大于2000的人名字
+-- SELECT ename,salary,deptno FROM emp WHERE deptno=30;
+-- SELECT ename,salary FROM (SELECT ename,salary,deptno FROM emp WHERE deptno=30) s WHERE s.salary>2000;
+-- 查询工资高于程咬金的员工
+-- SELECT ename,salary FROM emp WHERE ename='程咬金';
+-- SELECT ename,salary FROM emp WHERE salary>2975;
+-- SELECT ename,salary FROM emp WHERE salary>(SELECT salary FROM emp WHERE ename='程咬金');
+-- 工资高于30号部门所有人的员工信息
+-- SELECT MAX(salary) FROM emp WHERE deptno=30; 
+-- SELECT ename,salary from emp WHERE salary>(SELECT MAX(salary) FROM emp WHERE deptno=30);
+-- 查询工作和工资与妲己完全相同的员工信息
+-- SELECT job,salary FROM emp WHERE ename = '妲己';
+-- SELECT ename,job,salary FROM emp WHERE (job,salary) in (SELECT job,salary FROM emp WHERE ename = '妲己');
+-- 有2个以上直接下属的员工信息
+-- SELECT mgr FROM emp 
+-- GROUP BY mgr HAVING COUNT(mgr)>=2;
+-- SELECT * FROM emp WHERE empno in (SELECT mgr FROM emp 
+-- GROUP BY mgr HAVING COUNT(mgr)>=2);
+-- 查询员工编号为7788的员工名称、员工工资、部门名称、部门地址
+-- SELECT e.ename,e.salary,d.dname,d.`local` FROM emp e,dept d WHERE e.deptno=d.deptno AND e.empno=7788;
+-- 求7369员工编号、姓名、经理编号和经理姓名--自连接，把自己当两张表
+-- SELECT e1.empno,e1.ename,e2.empno,e2.ename FROM emp e1,emp e2 WHERE e1.mgr=e2.empno 
+-- AND e1.empno = 7369;
