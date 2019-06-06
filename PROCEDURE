@@ -1,0 +1,59 @@
+-- 创建存储过程
+-- delimiter $$
+-- CREATE PROCEDURE show_emp()
+-- BEGIN
+-- 声明一个变量
+-- DECLARE res VARCHAR(255) DEFAULT '';
+-- DECLARE x,y INT DEFAULT 0;
+-- DECLARE avgRes DOUBLE DEFAULT 0;
+-- 赋值
+-- SET x = 3;
+-- SET y = 4;
+-- SELECT AVG(salary) INTO avgRes from emp;
+-- SELECT * FROM emp;
+-- END$$
+-- delimiter ;
+-- 使用存储过程
+-- CALL show_emp();
+-- 查看存储过程
+-- SHOW PROCEDURE STATUS WHERE db='my_test';
+-- 删除存储过程
+-- DROP PROCEDURE show_emp;
+-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-- IN
+-- delimiter $$
+-- CREATE PROCEDURE getName(IN NAME VARCHAR(255))
+-- BEGIN
+-- 
+-- SELECT * FROM emp WHERE ename = NAME;
+-- 
+-- END$$
+-- delimiter ;
+-- CALL getName('诸葛亮');
+-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-- OUT
+-- delimiter $$
+-- CREATE PROCEDURE getSalary(IN n VARCHAR(255),OUT sarlary INT)
+-- BEGIN
+-- SELECT salary INTO sarlary FROM emp WHERE ename =n;
+-- 
+-- END$$
+-- delimiter ;
+-- CALL getSalary('鲁班',@dd);
+-- SELECT @dd FROM DUAL;
+-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-- INOUT
+-- delimiter $$
+-- CREATE PROCEDURE test_1(INOUT num INT(10),IN inc INT(10))
+-- BEGIN
+-- set num = num +inc;
+-- -- SELECT * FROM emp;
+-- END $$
+-- delimiter ;
+-- set @num1 = 20;
+-- CALL test_1(@num1,10);
+-- SELECT @num1;
+
+
+
+
