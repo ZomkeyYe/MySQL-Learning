@@ -1,0 +1,22 @@
+-- 主外键保持一致，避免产生笛卡尔集
+-- SELECT * FROM stu st,score sc WHERE st.id = sc.sid;
+-- 内连接中的等值连接，查询效果同上
+-- SELECT * FROM stu st INNER JOIN score sc ON st.id = sc.sid;
+-- 左连接 左边表里的全部查出来，右边表里的只查满足条件的数据(LEFT后面的outer可以省略)
+-- SELECT * FROM stu st LEFT JOIN score sc ON st.id = sc.sid;
+-- 右连接 右边表里的全部查出来，左边表里的只查满足条件的数据(RIGHT后面的outer可以省略)
+-- SELECT * FROM stu st RIGHT JOIN score sc ON st.id = sc.sid;
+-- 99查询，多表
+-- SELECT st.`name`,sc.score,c.subject FROM stu st,score sc,course c WHERE st.id = sc.sid AND sc.cid = c.cid;
+-- 内连接 效果同上
+-- SELECT st.`name`,sc.score,c.subject FROM stu st INNER JOIN score sc ON st.id = sc.sid INNER JOIN course c ON sc.cid = c.cid;
+-- 非等值连接
+-- 查询所有员工的姓名，工资，所在部门的名称以及工资的等级-99查询
+-- SELECT e.ename,e.salary,d.dname,s.grade FROM emp e,dept d,salgrade s WHERE e.deptno = d.deptno AND e.salary 
+-- AND e.salary >=s.lowSalary AND e.salary <=s.highSalary;
+-- e.salary >=s.lowSalary AND e.salary <=s.highSalary 可以用e.salary BETWEEN s.lowSalary AND s.highSalary;
+-- 内连接查询
+-- SELECT e.ename,e.salary,d.dname,s.grade FROM emp e INNER JOIN dept d ON 
+-- e.deptno = d.deptno 
+-- INNER JOIN salgrade s ON 
+-- e.salary BETWEEN s.lowSalary AND s.highSalary;
