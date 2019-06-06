@@ -1,0 +1,6 @@
+-- 添加外键的方式
+-- CREATE TABLE stuu(id INT PRIMARY KEY,NAME VARCHAR(50),age INT);
+-- CREATE TABLE score1(sid INT,score INT,
+-- CONSTRAINT sc_st_fk FOREIGN KEY(sid) REFERENCES stuu(id)
+-- );
+-- ALTER TABLE score1 ADD CONSTRAINT sc_st_fk FOREIGN KEY(sid) REFERENCES stuu(id);
