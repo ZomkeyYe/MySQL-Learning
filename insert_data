@@ -1,0 +1,21 @@
+delimiter $$
+CREATE PROCEDURE insert_empp(IN startNum INT,IN max_num INT)
+BEGIN
+-- 声明一个变量记录当前是第几条数据
+DECLARE i INT DEFAULT 0;
+
+-- 默认情况是自动提交sql
+SET autocommit = 0;#不允许自动提交sql
+
+REPEAT
+	SET i = i +1;
+-- 	插入数据
+INSERT INTO empp VALUES(startNum+i,rand_str(5),FLOOR(10+RAND()*30));
+UNTIL i = max_num
+END REPEAT;
+COMMIT;#整体提交所有的sql，提高效率
+END$$
+
+delimiter ;
+-- 调用
+CALL insert_empp(0,1000);
