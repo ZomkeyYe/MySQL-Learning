@@ -1,0 +1,64 @@
+-- SELECT * FROM students WHERE id=1 OR id=2 OR id=3;
+-- SELECT * FROM students WHERE id IN(1,2,3);
+-- SELECT * FROM students WHERE age BETWEEN 18 and 25;
+-- 查询姓名由两个字符构成的记录;
+-- SELECT * FROM students WHERE `name` LIKE '__';
+-- 查询 姓名由两个字符构成，并且第二个字符是j;
+-- SELECT * FROM students WHERE `name` LIKE '_j';
+-- 查询姓名以l开头的记录
+-- SELECT * FROM students WHERE `name` LIKE 'l%;
+-- 查询姓名中第二个字符是y的记录；
+-- SELECT * FROM students WHERE `name` LIKE '_y%';
+-- 查询姓名中包含q的记录
+-- SELECT * FROM students WHERE `name` LIKE '%q%';
+-- 去重查询
+-- SELECT DISTINCT `name` FROM students; 
+-- 分数加年龄并放入新的字段,如果是null则为0；
+-- SELECT *,IFNULL(AGE,0)+IFNULL(score,0) as total FROM students;
+-- SELECT `name` as DD FROM students;
+-- 将查询结果降序排列，如果有相同字段，则按ID降序排列
+-- SELECT * FROM students ORDER BY score DESC,id DESC;
+-- 统计有多少条记录
+-- SELECT COUNT(*) FROM students;
+-- Null不作记录
+-- SELECT COUNT(score) FROM students;
+-- 统计分数大于85的人数
+-- SELECT COUNT(*) FROM students WHERE score>85;
+-- 统计年龄+分数大于110的人数
+-- SELECT COUNT(*) FROM students WHERE IFNULL(age,0)+IFNULL(score,0)>110;
+-- 查询有分数的人数和email的人数,并分别将列名重命名
+-- SELECT COUNT(score) AS dd,COUNT(email) AS tt FROM students;
+-- 查询所有人的分数和
+-- SELECT SUM(score) FROM students;
+-- 分别查询分数∑与年龄∑
+-- SELECT SUM(score),SUM(age) FROM students;
+-- 查询分数和年龄的总和
+-- SELECT SUM(IFNULL(score,0)+IFNULL(age,0)) FROM students;
+-- 统计平均分数
+-- SELECT AVG(score) FROM students;
+-- 查看最低分数和最高分数
+-- SELECT MAX(score),MIN(score) FROM students;
+-- 分别列出相同年纪的各个名字
+-- SELECT age,GROUP_CONCAT(`name`) FROM students GROUP BY age;
+-- 查看男的有谁，女的有谁
+-- SELECT gender,GROUP_CONCAT(`name`) FROM students GROUP BY gender;
+-- 可以结合聚合函数
+-- SELECT gender,GROUP_CONCAT(age),SUM(score) FROM students GROUP BY gender;
+-- 查询不同性别的性别名词和每个性别的分数合
+-- SELECT gender,GROUP_CONCAT(score),SUM(score) FROM students GROUP BY gender;
+-- 查询每个性别名称和人数和
+-- SELECT gender,GROUP_CONCAT(`name`) AS tt,COUNT(*) AS DD FROM students GROUP BY gender;
+-- 查询每个性别名称和分数大于85的人数
+-- SELECT GROUP_CONCAT(`name`),gender,GROUP_CONCAT(score),COUNT(*) FROM students WHERE score > 85 GROUP BY gender;
+-- 查询分数总合大于130的部门名称
+-- SELECT bumen,GROUP_CONCAT(score),SUM(score) FROM students GROUP BY bumen HAVING SUM(score) > 240;
+-- 查询分数大于60的，分数合大于70的部门名称以及分数合；
+-- SELECT bumen,GROUP_CONCAT(score),SUM(score) FROM students WHERE score > 60 GROUP BY bumen HAVING SUM(score) > 70 ORDER BY SUM(score) DESC;
+-- limit用法，查询前3条数据；
+-- SELECT * FROM students LIMIT 0,3;
+-- SELECT * FROM students LIMIT 6,3;
+-- CREATE TABLE stu(
+-- id INT PRIMARY KEY auto_increment,
+-- name VARCHAR(20) UNIQUE NOT NULL,
+-- gender CHAR(1) DEFAULT '男'
+-- );
