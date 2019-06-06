@@ -1,0 +1,9 @@
+-- 表关系结构 一对多
+-- CREATE TABLE person(id INT PRIMARY KEY auto_increment,name VARCHAR(50));
+-- CREATE TABLE car(name VARCHAR(20),color VARCHAR(20),pid INT,CONSTRAINT c_p_fk FOREIGN KEY(pid) REFERENCES person(id));
+-- 表关系结构 多对多
+-- CREATE TABLE tea(tid INT PRIMARY KEY auto_increment,name VARCHAR(20));
+-- CREATE TABLE stu(sid INT PRIMARY KEY auto_increment,name VARCHAR(20));
+-- CREATE TABLE tea_stu_rel(tid INT,sid INT);
+-- ALTER TABLE tea_stu_rel ADD CONSTRAINT FOREIGN KEY(tid) REFERENCES tea(tid);
+-- ALTER TABLE tea_stu_rel ADD CONSTRAINT FOREIGN KEY(sid) REFERENCES stu(sid);
