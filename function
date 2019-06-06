@@ -1,0 +1,23 @@
+###########################################################
+-- 随机生成一个指定个数的字符串
+delimiter $$
+CREATE FUNCTION rand_str(n INT) RETURNS VARCHAR(255)
+BEGIN
+-- 先声明一个str
+DECLARE str VARCHAR(255) DEFAULT 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+-- 声明当前是第几个
+DECLARE i INT DEFAULT 0;
+-- 生成的结果
+DECLARE res_str VARCHAR(255) DEFAULT '';
+WHILE i < n DO
+-- 随机生成一个指定个数的字符串
+-- floor(1+RAND()*52)
+-- SUBSTR(str,floor(1+RAND()*52),1);
+SET res_str = CONCAT(res_str,SUBSTR(str,floor(1+RAND()*52),1));
+SET i = i + 1;
+END WHILE;
+RETURN res_str;
+END$$
+delimiter ;
+-- SELECT rand_str(4);
+###########################################################
