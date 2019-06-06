@@ -1,0 +1,14 @@
+-- 创建用户
+-- create user 'yetingtao'@'localhost' identified by 'lyq3163316';
+-- 删除用户
+-- DROP USER 'yetingtao'@'localhost';
+-- 给与权限
+-- GRANT ALL PRIVILEGES ON zomkey_test.* TO 'liyiqiong'@'localhost' WITH GRANT OPTION;
+-- 刷新；
+-- flush privileges;
+-- 提示无权限给与权限是由于8.0版本加密方式的问题，用下面的方式
+-- alter user test identified with mysql_native_password by 'xxx'；
+-- update user set host='%' where user='root';
+-- grant insert,SELECT,DELETE on my_test.stu TO 'ttt'@'localhost';
+-- 查看权限
+-- show grants FOR ttt@localhost;
