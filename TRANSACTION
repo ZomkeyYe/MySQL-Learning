@@ -1,0 +1,17 @@
+-- UPDATE  zs_account set money=money+2000;
+-- UPDATE  ls_account set money=money-2000;
+-- SELECT * FROM zs_account,ls_account;
+-- 开启事务
+-- START TRANSACTION;
+-- UPDATE  zs_account set money=money-2000;
+-- UPDATE  ls_account set money=money+2000;
+-- SELECT * FROM zs_account;
+-- 回滚事务
+-- ROLLBACK;
+-- 提交事务
+-- COMMIT;
+-- 查看事务隔离级别
+-- select @@global.transaction_isolation,@@transaction_isolation;
+-- 设置隔离级别
+-- set global transaction isolation level REPEATABLE READ; 
+-- set session transaction isolation level read uncommitted;
